@@ -18,22 +18,16 @@ AddEventHandler("redm:paycheck",function()
 	local _source = source
 	local User = VorpCore.getUser(_source)
 	local Character = User.getUsedCharacter
-	local group = Character.group
+	local job = Character.job
 
-		if group == "admin" then -- grupo qual irá receber o pagamento/which group will receive payment
-		Character.addCurrency(0, 100)
-		TriggerClientEvent('vorp:TipRight',_source, "Você recebeu seu salário")
-		--TriggerClientEvent('vorp:TipRight',_source, "Did you get your salary")
+		if job == "police" then
+			Character.addCurrency(0, 15)
+			TriggerClientEvent('vorp:TipRight',_source, "Lawman Salary")
 		end
 		
-		if group == "admin" then -- grupo qual irá receber o pagamento/which group will receive payment
-        Character.addCurrency(0, 100)
-		TriggerClientEvent('vorp:TipRight',_source, "Você recebeu seu salário")
-			--TriggerClientEvent('vorp:TipRight',_source, "Did you get your salary")
+		if job == "doctor" then
+        	Character.addCurrency(0, 15)
+			TriggerClientEvent('vorp:TipRight',_source, "Doctor Salary")
 		end
-		--exemplo
-		--if group == "admin" then -- grupo/group
-       -- Character.addCurrency(0, 100)
-		--end
 
 end)
